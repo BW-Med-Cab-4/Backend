@@ -34,11 +34,12 @@ router.post('/register', (req, res) => {
   });
 
   router.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
   
     if (isValid(req.body)) {
-        Users.findBy({ username: username })
+        Users.findBy({email})
             .then(([user]) => {
+                console.log(user)
                 if (user && bcryptjs.compareSync(password, user.password)) {
                     const token = makeJwt(user);
                     res.status(200).json({ token });
@@ -51,7 +52,7 @@ router.post('/register', (req, res) => {
             });
     } else {
         res.status(400).json({
-            message: "please provide username and password and the password shoud be alphanumeric",
+            message: "please provide username and password and the password should be alphanumeric",
         });
     }
   });

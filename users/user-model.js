@@ -2,7 +2,7 @@ const db = require('../data/connections')
 
 module.exports = {
     find,
-    findById,
+    findBy,
     add,
     remove
 }
@@ -11,8 +11,8 @@ function find(){
     return db('users');
 }
 
-function findById(id){
-    return db('users').where({id}).first()
+function findBy(filter){
+    return db('users').where(filter).orderBy('email');
 }
 
 async function add(user){
