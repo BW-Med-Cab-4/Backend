@@ -35,18 +35,17 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
-    connection: pgConnection,
-    pool: {
-      min: 2,
-      max: 10
+    client: 'sqlite3',
+    connection: {
+      filename: './data/med-cab.db3'
     },
+    useNullAsDefault: true,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './data/migrations'
     },
-    seeds: {
-      directory: "./database/seeds",
-    },
+    seeds:{
+      directory: './data/seeds'
+    }
   }
 
 };
