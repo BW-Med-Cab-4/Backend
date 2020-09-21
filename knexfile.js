@@ -35,13 +35,16 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
-    connection: pgConnection,
-    pool: {
-      min: 2,
-      max: 10
-    },
+    client: "sqlite3",
     useNullAsDefault: true,
+    connection: {
+        filename: './data/med-cab.db3'
+    },
+    pool: {
+        afterCreate: (conn, done) => {
+            conn.run("PRAGMA foreign_keys = ON", done);
+        },
+    },
     migrations: {
       directory: './data/migrations'
     },
@@ -49,5 +52,4 @@ module.exports = {
       directory: './data/seeds'
     }
   }
-
 };
