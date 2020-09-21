@@ -1,4 +1,4 @@
-const bcryptjs = require("bcrypt-nodejs");
+const bcryptjs = require("bcryptjs");
 
 const router = require("express").Router();
 
