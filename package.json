@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/BW-Med-Cab-4/Backend#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
