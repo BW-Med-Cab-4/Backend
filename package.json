@@ -6,7 +6,8 @@
   "scripts": {
     "test": "",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "sh bin/heroku_install"
   },
   "repository": {
     "type": "git",
