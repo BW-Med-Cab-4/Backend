@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 
 
 // confirms whether the call to the api comes with valid token
-const authenticate = (req, res, next) => {
+function authenticate(req, res, next){
   const token = req.headers.authorization;
   const secret = process.env.JWT_SECRET || "med-cab"
 
