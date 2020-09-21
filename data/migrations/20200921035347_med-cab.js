@@ -1,5 +1,3 @@
-const { nextTick } = require("process");
-
 exports.up = function(knex) {
   return knex.schema
   .createTable('users', tbl =>{
@@ -30,5 +28,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema.dropTableIfExists('recommendations').dropTableIfExists('userInput').dropTableIfExists('users')
 };

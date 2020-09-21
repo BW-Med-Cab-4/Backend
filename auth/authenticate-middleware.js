@@ -27,7 +27,7 @@ function isValid(user) {
 }
 
 //creates token based off of user information
-function makeJwt({ id, username}) {
+function makeJwt({ id, email}) {
   const payload = {
       email,
       subject: id,
