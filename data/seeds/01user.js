@@ -1,13 +1,5 @@
+const { getMaxListeners } = require("process")
 
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+    return knex('users').insert({email: 'testemail@gmail.com', firstname:'michael', lastname:'hernandez', phone: 6096091234})
 };
