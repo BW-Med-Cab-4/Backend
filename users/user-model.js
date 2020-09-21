@@ -3,7 +3,8 @@ const db = require('../data/connections')
 module.exports = {
     find,
     findById,
-    add
+    add,
+    remove
 }
 
 function find(){
