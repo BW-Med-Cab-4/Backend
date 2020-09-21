@@ -20,3 +20,4 @@ exports.seed = function (knex) {
   } else {
     return cleanTables(knex);
   }
+}
