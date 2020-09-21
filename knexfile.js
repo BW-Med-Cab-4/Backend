@@ -35,9 +35,11 @@ module.exports = {
   },
 
   production: {
-    client: 'sqlite3',
-    connection: {
-      filename: './data/med-cab.db3'
+    client: 'pg',
+    connection: pgConnection,
+    pool: {
+      min: 2,
+      max: 10
     },
     useNullAsDefault: true,
     migrations: {
