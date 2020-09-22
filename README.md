@@ -5,7 +5,9 @@ https://med-cab-user.herokuapp.com/
 
 Registration
 
+POST
 https://med-cab-user.herokuapp.com/api/auth/register
+
 
 requires object with user info
 example:
@@ -35,6 +37,7 @@ returns user and token
 
 Login
 
+POST
 https://med-cab-user.herokuapp.com/api/auth/login
 
 requires object with email and password
@@ -49,4 +52,197 @@ returns id and token
 {
     "id": 2,
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQGdtYWlsLmNvbSIsInN1YmplY3QiOjIsImlhdCI6MTYwMDczMTQ0NiwiZXhwIjoxNjAwNzYwMjQ2fQ.IeavAEHzvcwBxcRcAz57Fhb_9WJAwL7219RPpssVDP0"
+}
+
+
+Users
+https://med-cab-user.herokuapp.com/api/users
+
+GET
+api/users
+
+returns a list of all users
+Example:
+[
+    {
+        "id": 1,
+        "email": "testemail@gmail.com",
+        "firstname": "testname",
+        "lastname": "testname",
+        "phone": 6096091234,
+        "password": "testpass"
+    },
+    {
+        "id": 2,
+        "email": "test1223email@gmail.com",
+        "firstname": "testname",
+        "lastname": "testname",
+        "phone": 1236091234,
+        "password": "$2a$08$WGK85UQFJK6G1pRCuB01WO2/n//4JhR2dXx2rApMYQ2dsNQeN4zmq"
+    }
+]
+
+GET
+api/users/:id
+
+returns specified users by ID
+Example:
+
+{
+    "id": 2,
+    "email": "test1223email@gmail.com",
+    "firstname": "testname",
+    "lastname": "testname",
+    "phone": 1236091234,
+    "password": "$2a$08$WGK85UQFJK6G1pRCuB01WO2/n//4JhR2dXx2rApMYQ2dsNQeN4zmq"
+}
+
+PUT
+api/users/:id
+
+updates specified user fields by ID and returns updated user(requires user object)
+example:
+
+send
+{
+    "id": 1,
+    "email": "testemail@gmail.com",
+    "firstname": "michael",
+    "lastname": "hernandez",
+    "phone": 6096091234,
+    "password": "newpass"
+}
+
+recieve
+{
+    "message": "User Updated",
+    "user": {
+        "id": 1,
+        "email": "testemail@gmail.com",
+        "firstname": "michael",
+        "lastname": "hernandez",
+        "phone": 6096091234,
+        "password": "newpass"
+    }
+}
+
+DELETE
+api/users/:id
+
+DELETES USER then returns success message
+Example:
+
+{
+    "message": "User Deleted"
+}
+
+https://med-cab-user.herokuapp.com/api/inputs
+
+GET
+api/inputs
+
+Retrieves all user inputs
+Example:
+
+[
+    {
+        "id": 1,
+        "userid": 1,
+        "effect": "happy",
+        "ailment": "insomnia",
+        "flavor": "cherry",
+        "type": "unknown"
+    },
+    {
+        "id": 2,
+        "userid": 2,
+        "effect": "sad",
+        "ailment": "fatigue",
+        "flavor": "blueberry",
+        "type": "unknown"
+    }
+]
+
+GET
+api/inputs/:userid
+
+retrieve all inputs from specified user
+Example:
+
+[
+    {
+        "id": 1,
+        "userid": 1,
+        "effect": "happy",
+        "ailment": "insomnia",
+        "flavor": "cherry",
+        "type": "unknown"
+    }
+]
+
+PUT
+api/inputs/:id
+
+Update specified input based off of input ID
+Example:
+
+send
+{
+    "id": 1,
+    "userid": 1,
+    "effect": "happy",
+    "ailment": "insomnia",
+    "flavor": "cherry",
+    "type": "unknown"
+}
+
+recieve
+{
+    "message": "Input Updated",
+    "userInput": {
+        "id": 1,
+        "userid": 1,
+        "effect": "happy",
+        "ailment": "insomnia",
+        "flavor": "cherry",
+        "type": "test"
+    }
+}
+
+POST
+api/inputs
+
+Add User input
+Example:
+
+send
+{
+    "userid": 1,
+    "effect": "happy",
+    "ailment": "insomnia",
+    "flavor": "cherry",
+    "type": "this type"
+}
+
+recieve
+{
+    "message": "Added user input",
+    "input": {
+        "id": 3,
+        "userid": 1,
+        "effect": "happy",
+        "ailment": "insomnia",
+        "flavor": "cherry",
+        "type": "this type"
+    }
+}
+
+DELETE
+api/inputs/:id
+
+DELETES USER INPUT
+Example:
+
+{
+    "message": "User input Deleted"
 }
