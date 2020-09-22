@@ -3,13 +3,14 @@ const db = require('../data/connections')
 module.exports = {
     find,
     findBy,
+    findById,
     add,
     remove,
     update
 }
 
 function find(){
-    return db('users');
+    return db('users')
 }
 
 function findBy(filter){
