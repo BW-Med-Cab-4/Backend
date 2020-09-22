@@ -136,6 +136,8 @@ Example:
     "message": "User Deleted"
 }
 
+
+Inputs
 https://med-cab-user.herokuapp.com/api/inputs
 
 GET
@@ -245,4 +247,109 @@ Example:
 
 {
     "message": "User input Deleted"
+}
+
+Recommendations
+https://med-cab-user.herokuapp.com/api/recommendations
+
+GET
+api/recommendations
+
+retrieve all recommendations 
+Example:
+
+[
+    {
+        "id": 1,
+        "userid": 1,
+        "strain": "strain",
+        "description": "this is a description",
+        "rating": 10
+    },
+        {
+        "id": 2,
+        "userid": 1,
+        "strain": "strain",
+        "description": "this is another description",
+        "rating": 10
+    }
+]
+
+
+GET
+api/recommendations/:userid
+
+retrieve all recommendations from specific user
+Example:
+
+[
+    {
+        "id": 1,
+        "userid": 1,
+        "strain": "strain",
+        "description": "this is a description",
+        "rating": 10
+    }
+]
+
+PUT
+api/recommendations/:id
+
+Update specified recommendation
+Example:
+
+send
+{
+    "id": 1,
+    "userid": 1,
+    "strain": "strain",
+    "description": "this is a description",
+    "rating": 9
+}
+
+recieve
+{
+    "message": "Recommendation Updated",
+    "user": {
+        "id": 1,
+        "userid": 1,
+        "strain": "strain",
+        "description": "this is a description",
+        "rating": 9
+    }
+}
+
+POST
+api/recommendations
+
+Add recommendation
+Example:
+
+send
+{
+    "userid": 1,
+    "strain": "new strain",
+    "description": "this is a description",
+    "rating": 9
+}
+
+recieve:
+{
+    "message": "Added Recommendation",
+    "rec": {
+        "id": 2,
+        "userid": 1,
+        "strain": "new strain",
+        "description": "this is a description",
+        "rating": 9
+    }
+}
+
+DELETE
+api/recommendations/:id
+
+DELETE RECOMMENDATION
+Example:
+{
+    "message": "Recommendation Deleted"
 }
