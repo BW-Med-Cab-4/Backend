@@ -1,3 +1,3 @@
 exports.seed = function(knex) {
-    return knex('userinput').insert({input1: 0,input2: 0,input3: 0,input4: 0,input5: 0,input6: 0})
+    return knex('userinput').insert({userid: 1, effect: 'happy', ailment: 'insomnia', flavor: 'blueberry', type: 'unknown'})
 };

@@ -10,34 +10,35 @@ module.exports = {
 }
 
 function find(){
-    return db('users')
+    return db('recommendations')
 }
 
 function findBy(filter){
-    return db('users').where(filter).orderBy('email');
+    console.log(filter)
+    return db('recommendations').where(filter).orderBy('userid');
 }
 
 function findById(id){
-    return db('users').where({id}).first();
+    return db('recommendations').where({id}).first();
 }
-async function add(user){
+
+async function add(set){
     try{
-        const [id] = await db('users').insert(user, 'id');
+        const [id] = await db('recommendations').insert(set, 'id');
         return findById(id);
     }catch(error){
         throw error;
     }
-
 }
 
 function remove(id){
-    return db('users').where({id}).delete();
+    return db('recommendations').where({id}).delete();
 }
 
-function update(id, user) {
-    return db("users")
+function update(id, set) {
+    return db("recommendations")
       .where({ id })
-      .update(user)
+      .update(set)
       .then((count) => {
         return findById(id);
       });

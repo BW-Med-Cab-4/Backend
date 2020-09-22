@@ -15,6 +15,7 @@ function authenticate(req, res, next){
       err ?
       res.status(401).json({message: 'Token Not Authorized'})
       : req.jwt = decodedToken
+      next()
     })
   }else{
     res.status(401).json({ message: 'Missing Token'});
@@ -33,7 +34,7 @@ function makeJwt({ id, email}) {
       subject: id,
   };
   const config = {
-      jwtSecret: process.env.JWT_SECRET || "is it secret, is it safe?",
+      jwtSecret: process.env.JWT_SECRET || "med-cab",
   };
   const options = {
       expiresIn: "8 hours",

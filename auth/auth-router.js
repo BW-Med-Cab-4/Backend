@@ -39,7 +39,6 @@ router.post('/register', (req, res) => {
     if (isValid(req.body)) {
         Users.findBy({email})
             .then(([user]) => {
-                console.log(user)
                 if (user && bcryptjs.compareSync(password, user.password)) {
                     const token = makeJwt(user);
                     res.status(200).json({id: user.id, token: token });

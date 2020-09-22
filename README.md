@@ -44,8 +44,9 @@ requires object with email and password
     "password": "testpass"
 }
 
-returns token
+returns id and token
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvMjIzMzIzZXJlMzMxQGdtYWlsLmNvbSIsInN1YmplY3QiOjgsImlhdCI6MTYwMDcyMTU5NiwiZXhwIjoxNjAwNzUwMzk2fQ.5LjCbdavlhBhJantZoyA2Gzm0umvRtrpWJY3EFd1CWI"
+    "id": 2,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQGdtYWlsLmNvbSIsInN1YmplY3QiOjIsImlhdCI6MTYwMDczMTQ0NiwiZXhwIjoxNjAwNzYwMjQ2fQ.IeavAEHzvcwBxcRcAz57Fhb_9WJAwL7219RPpssVDP0"
 }
