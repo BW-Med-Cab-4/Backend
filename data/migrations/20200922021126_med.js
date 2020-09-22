@@ -11,12 +11,10 @@ exports.up = function(knex) {
     .createTable('userinput', tbl =>{
         tbl.increments();
         tbl.integer('userid').unsigned().references('users.id');
-        tbl.boolean('input1').defaultTo(0);
-        tbl.boolean('input2').defaultTo(0);
-        tbl.boolean('input3').defaultTo(0);
-        tbl.boolean('input4').defaultTo(0);
-        tbl.boolean('input5').defaultTo(0);
-        tbl.boolean('input6').defaultTo(0);
+        tbl.string('effect')
+        tbl.string('ailment')
+        tbl.string('flavor')
+        tbl.string('type')
     })
     .createTable('recommendations', tbl =>{
         tbl.increments();
@@ -29,6 +27,9 @@ exports.up = function(knex) {
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('recommendations').dropTableIfExists('userInput').dropTableIfExists('users')
+    return knex.schema
+        .dropTableIfExists('recommendations')
+        .dropTableIfExists('userInput')
+        .dropTableIfExists('users')
   };
   
